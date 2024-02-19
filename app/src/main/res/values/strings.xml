@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">MyCard</string>
+    <string name="question">題目 : \n \n</string>
+    <string name="record">問題記錄 : \n \n</string>
+
+</resources>

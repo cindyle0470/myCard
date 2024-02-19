@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.cindyle.mycard.getcards.GetCardViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.cindyle.mycard.getcards.GetCardFragment">
+
+        <!--圖片放大-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/big_img_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/translucent"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/img_cancel"
+                app:layout_constraintBottom_toTopOf="@+id/img_big"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                android:padding="10dp"
+                android:src="@drawable/cancel_white" />
+
+            <ImageView
+                android:id="@+id/img_big"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="350dp"
+                android:layout_height="480dp"
+                android:scaleType="fitCenter"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <!-- 日期列 -->
+                    <TextView
+                        android:id="@+id/txt_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_weight="1"
+                        android:text=""
+                        android:textSize="18dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <!-- 題目 -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/edt_q_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginEnd="24dp"
+                        app:endIconMode="clear_text"
+                        app:counterEnabled="true"
+                        app:counterMaxLength="50"
+                        app:errorEnabled="true"
+                        android:hint="請輸入問題"
+                        android:textColorHint="@color/gary200"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_time">
+
+                        <EditText
+                            android:id="@+id/edt_question"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/edt_style"
+                            android:gravity="top"
+                            android:maxLength="50"
+
+                            android:paddingHorizontal="8dp"
+                            android:paddingVertical="8dp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <!-- 題目 -->
+                    <TextView
+                        android:id="@+id/txt_question"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginEnd="24dp"
+                        android:gravity="top"
+                        android:textSize="18dp"
+                        android:visibility="gone"
+                        android:background="@drawable/record_text_style"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="4dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/edt_q_layout" />
+
+                    <!-- 抽牌 -->
+                    <TextView
+                        android:id="@+id/btn_get"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_marginEnd="16dp"
+                        android:background="@drawable/tv_click_style"
+                        android:gravity="center"
+                        android:paddingHorizontal="10dp"
+                        android:text="抽牌"
+                        android:textColor="@color/white"
+                        android:textSize="18dp"
+                        app:layout_constraintEnd_toStartOf="@+id/btn_add"
+                        app:layout_constraintTop_toTopOf="@+id/txt_time" />
+
+                    <!-- 加宮位 -->
+                    <TextView
+                        android:id="@+id/btn_add"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_marginEnd="16dp"
+                        android:background="@drawable/tv_click_style"
+                        android:gravity="center"
+                        android:paddingHorizontal="10dp"
+                        android:text="增加牌組"
+                        android:textColor="@color/white"
+                        android:textSize="18dp"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/btn_get" />
+
+                    <!-- clear all -->
+                    <TextView
+                        android:id="@+id/btn_clear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_marginEnd="16dp"
+                        android:background="@drawable/tv_click_style"
+                        android:gravity="center"
+                        android:paddingHorizontal="10dp"
+                        android:text="洗牌重抽"
+                        android:visibility="gone"
+                        android:textColor="@color/white"
+                        android:textSize="18dp"
+                        app:layout_constraintEnd_toStartOf="@+id/btn_add"
+                        app:layout_constraintTop_toTopOf="@+id/btn_add" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!-- 第一 -->
+                <include
+                    android:id="@+id/platform1"
+                    layout="@layout/item_platform" />
+
+                <View
+                    android:id="@+id/line1"
+                    android:visibility="invisible"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@color/teal_200" />
+
+                <!-- 第二 -->
+                <include
+                    android:id="@+id/platform2"
+                    android:visibility="gone"
+                    layout="@layout/item_platform" />
+
+                <View
+                    android:id="@+id/line2"
+                    android:visibility="invisible"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@color/teal_200" />
+
+                <!-- 第三 -->
+                <include
+                    android:id="@+id/platform3"
+                    android:visibility="gone"
+                    layout="@layout/item_platform" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layout_record"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <!-- 記錄 -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/edt_r_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:endIconMode="clear_text"
+                        app:counterEnabled="true"
+                        app:counterMaxLength="150"
+                        app:errorEnabled="true"
+                        android:layout_marginBottom="24dp"
+                        android:hint="解牌記錄..."
+                        android:textColorHint="@color/gary200"
+                        app:layout_constraintBottom_toTopOf="@+id/btn_save"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" >
+
+                        <EditText
+                            android:id="@+id/edt_record"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="24dp"
+                            android:layout_marginStart="24dp"
+                            android:layout_marginEnd="24dp"
+                            android:layout_marginBottom="8dp"
+                            android:background="@drawable/edt_style"
+                            android:minLines="5"
+                            android:maxLength="150"
+                            android:gravity="top"
+                            android:paddingHorizontal="8dp"
+                            android:paddingVertical="4dp"
+                            app:endIconMode="clear_text"
+                           />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:id="@+id/txt_record"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="24dp"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginEnd="32dp"
+                        android:layout_marginBottom="24dp"
+                        android:text="解牌記錄..."
+                        android:minLines="5"
+                        android:gravity="top"
+                        android:textSize="18dp"
+                        android:background="@drawable/record_text_style"
+                        android:visibility="gone"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="4dp"
+                        app:layout_constraintBottom_toTopOf="@+id/btn_save"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <TextView
+                        android:id="@+id/btn_save"
+                        android:layout_width="56dp"
+                        android:layout_height="30dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:background="@drawable/btn_unenable_style"
+                        android:gravity="center"
+                        android:text="儲存"
+                        android:textColor="@color/white"
+                        android:textSize="18dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </FrameLayout>
+</layout>

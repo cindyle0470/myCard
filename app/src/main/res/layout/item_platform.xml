@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_p"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/group_num"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="32dp"
+            android:text=""
+            android:textColor="@color/teal_700"
+            android:textSize="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/img_phy1"
+            android:layout_width="70dp"
+            android:layout_height="110dp"
+            android:background="@drawable/physical_back"
+            app:layout_constraintBottom_toBottomOf="@+id/img_phy2"
+            app:layout_constraintEnd_toEndOf="@+id/img_pp1"
+            app:layout_constraintTop_toTopOf="@+id/img_phy2" />
+
+        <ImageView
+            android:id="@+id/img_phy2"
+            android:layout_width="70dp"
+            android:layout_height="110dp"
+            android:layout_marginStart="24dp"
+            android:background="@drawable/physical_back"
+            app:layout_constraintBottom_toBottomOf="@+id/img_horse"
+            app:layout_constraintStart_toEndOf="@+id/img_phy1"
+            app:layout_constraintTop_toTopOf="@+id/img_horse"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <ImageView
+            android:visibility="invisible"
+            android:id="@+id/img_pp1"
+            android:layout_width="110dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="24dp"
+            android:background="@drawable/ppy_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/img_pp2" />
+
+        <ImageView
+            android:visibility="invisible"
+            android:id="@+id/img_pp2"
+            android:layout_width="110dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="24dp"
+            android:background="@drawable/ppy_back"
+            app:layout_constraintBottom_toBottomOf="@+id/img_horse"
+            app:layout_constraintStart_toEndOf="@+id/img_pp1"
+            app:layout_constraintTop_toTopOf="@+id/img_horse" />
+
+
+        <ImageView
+            android:id="@+id/img_horse"
+            android:layout_width="70dp"
+            android:layout_height="110dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/other_back"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/img_pp2"
+            app:layout_constraintTop_toBottomOf="@+id/group_num" />
+
+        <ImageView
+            android:id="@+id/img_star"
+            android:layout_width="70dp"
+            android:layout_height="110dp"
+            android:layout_marginStart="24dp"
+            android:background="@drawable/star_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/img_god" />
+
+        <ImageView
+            android:id="@+id/img_god"
+            android:layout_width="70dp"
+            android:layout_height="110dp"
+            android:background="@drawable/god_back"
+            app:layout_constraintEnd_toStartOf="@+id/img_door"
+            app:layout_constraintStart_toEndOf="@+id/img_star"
+            app:layout_constraintTop_toTopOf="@+id/img_door" />
+
+        <ImageView
+            android:id="@+id/img_door"
+            android:layout_width="70dp"
+            android:layout_height="110dp"
+            android:background="@drawable/door_back"
+            app:layout_constraintEnd_toStartOf="@+id/img_space"
+            app:layout_constraintStart_toEndOf="@+id/img_god"
+            app:layout_constraintTop_toTopOf="@+id/img_space" />
+
+        <ImageView
+            android:id="@+id/img_space"
+            android:layout_width="70dp"
+            android:layout_height="110dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/space_back"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_horse" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

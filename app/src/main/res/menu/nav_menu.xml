@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="抽取奇門牌卡"
+        android:id="@+id/nav1"
+        android:icon="@drawable/cards" />
+
+    <item android:title="記錄"
+        android:id="@+id/nav2"
+        android:icon="@drawable/cards" />
+
+    <item android:title="連絡資訊"
+        android:id="@+id/nav3"
+        android:icon="@drawable/record" />
+</menu>

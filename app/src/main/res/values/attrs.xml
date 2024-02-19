@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SwipeMenuLayout">
+        <attr name="ios" format="boolean" />  <!-- 阻塞式交互 默认開啟 -->
+        <attr name="swipeEnable" format="boolean" /> <!--  侧滑功能开关 默认開啟 -->
+        <attr name="leftSwipe" format="boolean" /> <!-- true 為左滑，false 为右滑，默认左滑 -->
+    </declare-styleable>
+</resources>
