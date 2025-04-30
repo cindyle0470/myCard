@@ -13,24 +13,6 @@ import com.example.mycard.R;
 
 public class ContactsFragment extends Fragment {
 
-
-    private String mParam1;
-    private String mParam2;
-
-    public ContactsFragment() {
-        // Required empty public constructor
-    }
-
-
-    // TODO: Rename and change types and number of parameters
-    public static ContactsFragment newInstance(String param1, String param2) {
-        ContactsFragment fragment = new ContactsFragment();
-        Bundle args = new Bundle();
-
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
